@@ -1,0 +1,403 @@
+:root {
+    --accent: #165333;
+    --accent-dark: #284035;
+    --background: #fdfdfd;
+    --text-main: #1B2221;
+    --text-light: #6B7C74;
+}
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background: var(--background);
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    letter-spacing: 0.01em;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* NAVIGATION */
+nav {
+    width: 100%;
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    border-bottom: 1px solid #e2e7e3;
+    box-shadow: 0 1px 6px rgba(76,106,90,0.04);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    height: 72px;
+}
+
+.site-title {
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: var(--accent-dark);
+    letter-spacing: -0.015em;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 1.06rem;
+    padding: 3px 0;
+    position: relative;
+    transition: color 0.2s;
+}
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -2px;
+    width: 100%; height: 1.5px;
+    background: var(--accent);
+    opacity: 0;
+    transform: scaleX(0);
+    transition: 0.23s cubic-bezier(.76,0,.24,1);
+}
+nav ul li a:hover,
+nav ul li a:focus {
+    color: var(--accent);
+}
+nav ul li a:hover::after,
+nav ul li a:focus::after {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+/* HERO / ABOUT SECTION */
+.profile-row {
+    margin: 80px auto 0 auto;
+    padding: 0 48px;
+    gap: 72px;
+    max-width: 1250px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: none;
+}
+.profile-img-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profile-img {
+    width: 240px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--accent);
+    background: #eee;
+    box-shadow: 0 2px 16px 0 rgba(22,83,51,0.08);
+    margin-bottom: 0;
+}
+.profile-info {
+    flex: 1;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+}
+.intro {
+    color: var(--text-light);
+    font-size: 1.11rem;
+    margin-bottom: 0.15em;
+    letter-spacing: 0.01em;
+}
+.profile-info h1 {
+    margin: 0 0 0.15em 0;
+    font-size: 3.3rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+    line-height: 1.04;
+    color: var(--accent-dark);
+}
+.profile-info h2 {
+    font-size: 1.40rem;
+    color: var(--accent);
+    margin: 0 0 1.1em 0;
+    font-weight: 700;
+    letter-spacing: 0;
+}
+.profile-buttons {
+    margin-bottom: 0;
+    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* BUTTONS & LINKEDIN ICON */
+.btn {
+    border-radius: 48px;
+    font-size: 1.05rem;
+    padding: 0.68em 1.7em;
+    font-weight: 700;
+    outline: none;
+    border: none;
+    background: none;
+    color: var(--accent);
+    transition: all 0.16s cubic-bezier(.76,0,.24,1);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    letter-spacing: 0.01em;
+}
+.btn-outline {
+    border: 1.4px solid var(--accent);
+    background: none;
+    color: var(--accent);
+}
+.btn-outline:hover,
+.btn-outline:focus {
+    background: var(--background);
+    color: var(--accent-dark);
+}
+.btn-filled {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+}
+.btn-filled:hover,
+.btn-filled:focus {
+    background: var(--accent-dark);
+    color: #fff;
+}
+.profile-buttons .linkedin-icon {
+    background: none;
+    border: 1.4px solid var(--accent);
+    color: var(--accent-dark);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-left: 10px;
+    transition: background 0.16s, color 0.16s, border 0.16s;
+}
+.profile-buttons .linkedin-icon:hover,
+.profile-buttons .linkedin-icon:focus {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+}
+
+/* SOCIAL ICONS (legacy, not used in row now) */
+.social-icons {
+    margin-top: 6px;
+    display: flex;
+    gap: 10px;
+}
+.social-icons a {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-dark);
+    background: none;
+    font-size: 1.22rem;
+    transition: color 0.18s, background 0.18s;
+    border: none;
+}
+.social-icons a:hover,
+.social-icons a:focus {
+    color: #fff;
+    background: var(--accent);
+}
+.linkedin-icon {
+    margin-left: 0;
+}
+.project-link {
+    margin-top: 0.3em;
+    margin-left: 0.2em;
+}
+
+.project-link a {
+    text-decoration: underline;
+    color: var(--accent-dark);
+    font-weight: 500;
+    transition: color 0.15s;
+}
+
+.project-link a:hover,
+.project-link a:focus {
+    color: var(--accent);
+}
+
+/* --- SECTIONS --- */
+.section-block {
+    max-width: 720px;
+    margin: 90px auto 0 auto;
+    padding: 0 40px;
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+    scroll-margin-top: 90px; /* for sticky nav offset */
+}
+#projects.section-block {
+    padding-bottom: 160px; /* extra space at the bottom */
+}
+.section-block h2 {
+    margin-bottom: 27px;
+    font-size: 2.1rem;
+    color: var(--accent);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+/* --- UNIFORM BULLET POINTS --- */
+
+/* Remove default bullets and left padding for all main ULs */
+.section-block ul {
+    padding-left: 0;
+    margin: 0;
+}
+
+/* Top-level list items: no bullet, no padding (for job/school/project titles) */
+.section-block > ul > li {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 2.5rem; /* space between jobs/schools/projects */
+}
+
+/* Nested ULs (actual bullet points, courses, descriptions) */
+.section-block ul ul {
+    margin-top: 0.7em;
+    margin-bottom: 0.7em;
+    padding-left: 1.3em; /* indent for bullets */
+}
+
+/* Nested bullets: modern green dot, centered alignment */
+.section-block ul ul li {
+    position: relative;
+    list-style: none;
+    color: var(--text-main);
+    font-size: 1.07em;
+    line-height: 1.48;
+    margin-bottom: 0.36em;
+    padding-left: 1.15em; /* space for bullet */
+}
+.section-block ul ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.52em;
+    width: 7px;
+    height: 7px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.92;
+}
+
+/* Optional: Last bullet margin */
+.section-block ul ul li:last-child {
+    margin-bottom: 0.15em;
+}
+
+/* --- TEXT STYLES --- */
+.section-block strong {
+    color: var(--accent-dark);
+    font-weight: 700;
+}
+.section-block em {
+    color: var(--accent-dark);
+    font-style: normal;
+    font-weight: 600;
+}
+.section-block span {
+    color: var(--text-light);
+    font-size: 1.01em;
+    display: block;
+    margin-bottom: 0.28em;
+}
+
+/* --- LINKS --- */
+.section-block a {
+    color: var(--accent-dark);
+    text-decoration: underline;
+    transition: color 0.16s;
+    font-weight: 500;
+}
+.section-block a:hover,
+.section-block a:focus {
+    color: var(--accent);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 950px) {
+    .profile-row,
+    .section-block {
+        max-width: 99vw;
+        padding: 0 4vw;
+        gap: 24px;
+    }
+    .section-block ul ul {
+        max-width: 94vw;
+    }
+}
+@media (max-width: 700px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        padding: 0 2vw;
+        height: auto;
+    }
+    nav ul {
+        gap: 14px;
+        font-size: 0.98em;
+    }
+    .profile-row {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 38px;
+        gap: 10px;
+    }
+    .profile-img {
+        width: 90px;
+        height: 90px;
+    }
+    .profile-info {
+        text-align: center;
+        gap: 10px;
+    }
+    .section-block {
+        margin: 44px 0 0 0;
+        padding: 0 2vw;
+    }
+    .section-block ul ul {
+        max-width: 96vw;
+    }
+}
+
+/* Accessibility */
+a:focus, button:focus, .btn:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
